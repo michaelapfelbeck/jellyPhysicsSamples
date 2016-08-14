@@ -2,7 +2,7 @@ package test;
 
 import haxe.unit.TestCase;
 import jellyPhysics.PressureBody;
-import lime.math.Vector2;
+import jellyPhysics.math.Vector2;
 
 /**
  * ...

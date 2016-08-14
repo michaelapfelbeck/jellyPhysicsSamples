@@ -1,6 +1,6 @@
 package;
 import jellyPhysics.*;
-import lime.math.Vector2;
+import jellyPhysics.math.*;
 import openfl.events.*;
 import openfl.text.*;
 import openfl.ui.Keyboard;

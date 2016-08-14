@@ -1,7 +1,7 @@
 package test;
 
 import haxe.unit.TestCase;
-import lime.math.Vector2;
+import jellyPhysics.math.Vector2;
 
 /**
  * ...

@@ -2,7 +2,7 @@ package;
 
 import haxe.Constraints.Function;
 import jellyPhysics.*;
-import lime.math.Vector2;
+import jellyPhysics.math.Vector2;
 import openfl.events.*;
 import DrawDebugWorld;
 import InputPoll;

@@ -2,7 +2,7 @@ package;
 import jellyPhysics.Body;
 import jellyPhysics.MaterialMatrix;
 import jellyPhysics.SpringBody;
-import lime.math.Vector2;
+import jellyPhysics.math.Vector2;
 import openfl.events.*;
 import DrawDebugWorld;
 import InputPoll;

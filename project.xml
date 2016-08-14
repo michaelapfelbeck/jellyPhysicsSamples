@@ -16,7 +16,6 @@
 	<source path="src" />
 	<haxelib name="openfl" />
 	<haxelib name="jellyPhysics" />
-	<haxelib name="actuate" />
 	
 	<!-- assets -->
 	

@@ -3,7 +3,7 @@ package;
 import jellyPhysics.Body;
 import jellyPhysics.PointMass;
 import jellyPhysics.test.*;
-import lime.math.Vector2;
+import jellyPhysics.math.Vector2;
 import haxe.unit.TestRunner;
 import openfl.Assets;
 import openfl.display.Bitmap;
