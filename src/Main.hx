@@ -25,7 +25,7 @@ class Main extends Sprite
     private var cycleTextField:TextField;
     
 	public function new() 
-	{
+    {
 		super();
         
         input = new InputPoll(stage);

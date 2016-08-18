@@ -3,18 +3,20 @@
 	<!-- NMML reference: https://gist.github.com/1763850 -->
 	
 	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="jellyPhysics-samples" package="jellyPhysics.samples.jellyPhysics-samples" version="1.0.0" company="Michael Apfelbeck" />
+	<meta title="jellyPhysicsSamples" package="jellyPhysics.samples.jellyPhysicsSamples" version="1.0.0" company="Michael Apfelbeck" />
 	
 	<!-- output -->
-	<app main="Main" file="jellyPhysics-samples" path="bin" />
+	<app main="Main" file="jellyPhysicsSamples" path="bin" />
 	
 	<window background="#DFDFDF" fps="60" />
 	<window width="800" height="480" unless="mobile" />
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+   
+    <!--<set name="lime-hybrid" />-->
     
 	<!-- classpath, haxe libs -->
 	<source path="src" />
-	<haxelib name="openfl" />
+	<haxelib name="openfl"/>
 	<haxelib name="jellyPhysics" />
 	
 	<!-- assets -->

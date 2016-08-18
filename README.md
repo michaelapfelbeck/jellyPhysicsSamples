@@ -1,2 +1,2 @@
-# jellyPhysics-samples
+# jellyPhysicsSamples
 Test samples for jellyPhysics
