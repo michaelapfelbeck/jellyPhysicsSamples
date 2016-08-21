@@ -42,12 +42,13 @@ class TestWorld2 extends TestWorldBase
         var edgeDamp:Float = 50;
         var pressureAmount:Float = 100.0;
         
+        var springBodyYPositions:Array<Float> = [0.2, 2.4, 4.6, 6.8];
         var springBodyXPositions:Array<Float> = [ -12, -8, -4, 0, 4, 8, 12];
         for (x in springBodyXPositions){
-            var squareBody:SpringBody = new SpringBody(getSquareShape(2), mass, new Vector2( x, 6.8), 0, new Vector2(1, 1), false, shapeK, shapeDamp, edgeK, edgeDamp);
-            physicsWorld.AddBody(squareBody);
-            squareBody = new SpringBody(getSquareShape(2), mass, new Vector2( x, 4.6), 0, new Vector2(1, 1), false, shapeK, shapeDamp, edgeK, edgeDamp);
-            physicsWorld.AddBody(squareBody);
+            for (y in springBodyYPositions){
+                var squareBody:SpringBody = new SpringBody(getSquareShape(2), mass, new Vector2( x, y), 0, new Vector2(1, 1), false, shapeK, shapeDamp, edgeK, edgeDamp);
+                physicsWorld.AddBody(squareBody);
+            }
         }
 
         var rotationAmount =  Math.PI / 3.8;

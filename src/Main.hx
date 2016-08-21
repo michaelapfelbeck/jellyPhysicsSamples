@@ -1,6 +1,7 @@
 package;
 
 import openfl.display.Graphics;
+import openfl.display.SimpleButton;
 import openfl.display.Sprite;
 import haxe.Constraints.Function;
 import openfl.ui.Keyboard;
@@ -21,8 +22,9 @@ class Main extends Sprite
     
     private static var worldCount:Int = 5;
     private var currIndex:Int = 3;
-    
-    private var cycleTextField:TextField;
+        
+    private var upButton:SimpleButton;
+    private var downButton:SimpleButton;
     
 	public function new() 
     {
@@ -39,6 +41,12 @@ class Main extends Sprite
     
     private function Init(e:Event):Void 
     {
+        #if debug
+        trace("debug build");
+        #elseif
+        trace("release build");
+        #end
+        
         removeEventListener(Event.ADDED_TO_STAGE, Init);
         addEventListener(Event.ENTER_FRAME, OnEnterFrame);
         
@@ -46,12 +54,60 @@ class Main extends Sprite
         
         getWorldAndAttach();
         
-        cycleTextField = new TextField();
-        cycleTextField.text = "PageUp/PageDown to cycle between test screens.";
-        cycleTextField.autoSize = TextFieldAutoSize.LEFT;
-        cycleTextField.x = stage.width - cycleTextField.width;
-		cycleTextField.y = 0;
-        stage.addChildAt(cycleTextField, 1);
+        var upButton:SimpleButton = makeButton("Next(PgUp)", 5, 0x9999BB, 0x333333);
+        var downButton:SimpleButton = makeButton("Prev(PgDn)", 5, 0x9999BB, 0x333333);
+        
+        upButton.addEventListener(MouseEvent.CLICK, cycleUp);
+        downButton.addEventListener(MouseEvent.CLICK, cycleDown);
+        
+        addChild(upButton);
+        addChild(downButton);
+        
+        upButton.x = stage.width-(upButton.width+5);
+        upButton.y = 2;
+        
+        downButton.x = stage.width-(downButton.width+upButton.width+15);
+        downButton.y = 2;
+    }
+    
+    private function cycleUp(e:Event):Void 
+    {
+        trace("cycleUp");
+        currIndex = (currIndex + 1) % worldCount;
+        getWorldAndAttach();
+    }
+    
+    private function cycleDown(e:Event):Void 
+    {
+        trace("cycleDown");
+        currIndex--;
+        if (currIndex < 0){
+            currIndex = worldCount - 1;
+        }
+        getWorldAndAttach();
+    }
+    
+    function makeButton(text:String, padding:Int, buttonColor:Int, textColor:Int):SimpleButton{
+        var textField:TextField = new TextField();
+        textField.text = text;
+        textField.autoSize = TextFieldAutoSize.LEFT;
+        textField.textColor = textColor;
+        textField.x = padding;
+        textField.y = padding;
+        textField.mouseEnabled = false;
+        
+        var button:SimpleButton = new SimpleButton();
+        var buttonSprite:Sprite = new Sprite();
+        buttonSprite.graphics.lineStyle(1, 0x555555);
+        buttonSprite.graphics.beginFill(buttonColor,1);
+        buttonSprite.graphics.drawRect(0,0,textField.width+padding*2,textField.height+padding*2);
+        buttonSprite.graphics.endFill();
+        
+        buttonSprite.addChild(textField);
+
+        button.overState = button.downState = button.upState = button.hitTestState = buttonSprite;
+        
+        return button;
     }
     
     function getWorldAndAttach() 

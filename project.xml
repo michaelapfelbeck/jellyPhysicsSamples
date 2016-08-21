@@ -3,14 +3,15 @@
 	<!-- NMML reference: https://gist.github.com/1763850 -->
 	
 	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="jellyPhysicsSamples" package="jellyPhysics.samples.jellyPhysicsSamples" version="1.0.0" company="Michael Apfelbeck" />
+	<meta title="jellyPhysicsSamples" package="jellyPhysics.samples.jellyPhysicsSamples6" version="1.0.0" company="Michael Apfelbeck" />
 	
 	<!-- output -->
 	<app main="Main" file="jellyPhysicsSamples" path="bin" />
 	
-	<window background="#DFDFDF" fps="60" />
+    <window width="800" height="480" fps="61" />
+	<!--<window background="#DFDFDF" fps="61" />
 	<window width="800" height="480" unless="mobile" />
-	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
+	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />-->
    
     <!--<set name="lime-hybrid" />-->
     
