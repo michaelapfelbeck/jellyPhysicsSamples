@@ -43,7 +43,7 @@ class Main extends Sprite
     {
         #if debug
         trace("debug build");
-        #elseif
+        #else
         trace("release build");
         #end
         
