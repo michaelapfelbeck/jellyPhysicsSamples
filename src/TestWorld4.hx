@@ -26,7 +26,7 @@ class TestWorld4 extends TestWorldBase
     private var yellowText:TextField;
     private var greenText:TextField;
     
-    private var blockSprings:Array<ExtrernalSpring>;
+    private var blockSprings:Array<ExternalSpring>;
     
     public function new(inputPoll:InputPoll)
     {
@@ -34,7 +34,7 @@ class TestWorld4 extends TestWorldBase
         Title = "Collision Callback Test World";
         PromptText = "Use material collision callbacks and body collision callbacks to find out what the red blob touches.\nClick/Touch to the left or right of the red blob to move it.";
         
-        blockSprings = new Array<ExtrernalSpring>();
+        blockSprings = new Array<ExternalSpring>();
     }
     
     override function Init(e:Event):Void 
@@ -61,7 +61,7 @@ class TestWorld4 extends TestWorldBase
         var offset:Vector2 = worldRender.offset;
         for (i in 0...blockSprings.length)
         {
-            var spring:ExtrernalSpring = blockSprings[i];
+            var spring:ExternalSpring = blockSprings[i];
             var pmA:PointMass = spring.BodyA.PointMasses[spring.pointMassA];
             var pmB:PointMass = spring.BodyB.PointMasses[spring.pointMassB];
             drawSurface.graphics.moveTo((pmA.Position.x * scale.x) + offset.x, (pmA.Position.y * scale.y) + offset.y);
@@ -141,7 +141,7 @@ class TestWorld4 extends TestWorldBase
         
         for (i in 0...blockSprings.length)
         {
-            var spring:ExtrernalSpring = blockSprings[i];
+            var spring:ExternalSpring = blockSprings[i];
             var a:Body = spring.BodyA;
             var pmA = a.PointMasses[spring.pointMassA];
             var b:Body = spring.BodyB;
@@ -306,25 +306,25 @@ class TestWorld4 extends TestWorldBase
         //connect those green blocks with springs
         var externalK:Float = 50.0;
         var externalDamp:Float = 20.0;
-        var spring:ExtrernalSpring;
-        spring = new ExtrernalSpring(greenBodyUL, greenBodyUR, 1, 0, 0.0, externalK, externalDamp);
+        var spring:ExternalSpring;
+        spring = new ExternalSpring(greenBodyUL, greenBodyUR, 1, 0, 0.0, externalK, externalDamp);
         blockSprings.push(spring);
-        spring = new ExtrernalSpring(greenBodyUL, greenBodyUR, 2, 3, 0.0, externalK, externalDamp);
-        blockSprings.push(spring);
-        
-        spring = new ExtrernalSpring(greenBodyUR, greenBodyLR, 2, 1, 0.0, externalK, externalDamp);
-        blockSprings.push(spring);
-        spring = new ExtrernalSpring(greenBodyUR, greenBodyLR, 3, 0, 0.0, externalK, externalDamp);
+        spring = new ExternalSpring(greenBodyUL, greenBodyUR, 2, 3, 0.0, externalK, externalDamp);
         blockSprings.push(spring);
         
-        spring = new ExtrernalSpring(greenBodyLR, greenBodyLL, 3, 2, 0.0, externalK, externalDamp);
+        spring = new ExternalSpring(greenBodyUR, greenBodyLR, 2, 1, 0.0, externalK, externalDamp);
         blockSprings.push(spring);
-        spring = new ExtrernalSpring(greenBodyLR, greenBodyLL, 0, 1, 0.0, externalK, externalDamp);
+        spring = new ExternalSpring(greenBodyUR, greenBodyLR, 3, 0, 0.0, externalK, externalDamp);
         blockSprings.push(spring);
         
-        spring = new ExtrernalSpring(greenBodyLL, greenBodyUL, 0, 3, 0.0, externalK, externalDamp);
+        spring = new ExternalSpring(greenBodyLR, greenBodyLL, 3, 2, 0.0, externalK, externalDamp);
         blockSprings.push(spring);
-        spring = new ExtrernalSpring(greenBodyLL, greenBodyUL, 1, 2, 0.0, externalK, externalDamp);
+        spring = new ExternalSpring(greenBodyLR, greenBodyLL, 0, 1, 0.0, externalK, externalDamp);
+        blockSprings.push(spring);
+        
+        spring = new ExternalSpring(greenBodyLL, greenBodyUL, 0, 3, 0.0, externalK, externalDamp);
+        blockSprings.push(spring);
+        spring = new ExternalSpring(greenBodyLL, greenBodyUL, 1, 2, 0.0, externalK, externalDamp);
         blockSprings.push(spring);
     }
 }

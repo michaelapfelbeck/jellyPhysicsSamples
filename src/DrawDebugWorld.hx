@@ -6,7 +6,8 @@ import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import jellyPhysics.World;
 import openfl.text.TextField;
-
+import openfl.Assets;
+import haxe.ds.Vector;
 /**
  * ...
  * @author Michael Apfelbeck
@@ -113,7 +114,7 @@ class DrawDebugWorld
                 createTextLabels(world.NumberBodies);
             }
         }
-        
+                
         for (i in 0...world.NumberBodies){
             var body:Body = world.GetBody(i);
             if (DrawingLabels){
@@ -234,6 +235,7 @@ class DrawDebugWorld
         var start:Vector2 = shape[0];
         if (opts.IsSolid){
             graphics.beginFill(opts.Color, 1.0);
+            //graphics.beginBitmapFill(data, null, true);
         }
         graphics.moveTo((start.x * scale.x) + offset.x , (start.y * scale.y) + offset.y );
         for (i in 0...shape.length){
