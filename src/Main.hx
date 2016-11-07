@@ -37,7 +37,29 @@ class Main extends Sprite
         }else{
             addEventListener(Event.ADDED_TO_STAGE, Init);
         }
+        
+        //testPool();
 	}
+    
+    /*function testPool() 
+    {
+        var intPool:Pool<Int> = new Pool<Int>(4, intMaker);
+        
+        var fromPool1 = intPool.get();
+        var fromPool2 = intPool.get();
+        var fromPool3 = intPool.get();
+        
+        fromPool2 = 8;
+        
+        intPool.release(fromPool1);
+        intPool.release(fromPool2);
+        intPool.release(fromPool3);
+    }
+    
+    function intMaker():Int
+    {
+        return 7;
+    }*/
     
     private function Init(e:Event):Void 
     {
