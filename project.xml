@@ -21,7 +21,6 @@
 	<haxelib name="jellyPhysics" />
 	
 	<!-- assets -->
-	<assets path="assets"/>
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->
 	

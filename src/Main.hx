@@ -20,8 +20,8 @@ class Main extends Sprite
     
     private var worlds:Array<Function>;
     
-    private static var worldCount:Int = 5;
-    private var currIndex:Int = 3;
+    private static var worldCount:Int = 6;
+    private var currIndex:Int = 4;
         
     private var upButton:SimpleButton;
     private var downButton:SimpleButton;
@@ -179,6 +179,8 @@ class Main extends Sprite
                 world = new TestWorld4(input);
             case 4:
                 world = new TestWorld5(input);
+            case 5:
+                world = new TestWorld6(input);
             default:
                 trace("Something went wrong in the demo, unknown world number: " + worldNum);
                 world = null;
