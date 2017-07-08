@@ -169,7 +169,7 @@ class TestWorldBase extends Sprite
         Draw();
     }
     
-    private function Update(elapsed:Float):Void
+    public function Update(elapsed:Float):Void
     {
         physicsWorld.Update(elapsed);
     }
